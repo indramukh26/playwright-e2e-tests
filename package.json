@@ -1,0 +1,19 @@
+{
+  "name": "playwright-e2e-test",
+  "version": "1.0.0",
+  "description": "playwright e2e test",
+  "keywords": [
+    "playwright",
+    "playwright",
+    "-mcp"
+  ],
+  "license": "ISC",
+  "author": "Indradeep",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {},
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^22.20.3"
+  }
+}
