@@ -11,7 +11,12 @@
   "author": "Indradeep",
   "type": "commonjs",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "demo": "npx playwright test tests/demo/mytest.spec.ts --headed",
+    "demo:firefox": "npx playwright test tests/demo/mytest.spec.ts --headed --project=firefox",
+    "demo:chromium": "npx playwright test tests/demo/mytest.spec.ts --headed --project=chromium",
+    "demo:webkit": "npx playwright test tests/demo/mytest.spec.ts --headed --project=webkit"
+  },
   "devDependencies": {
     "@playwright/test": "^1.63.0",
     "@types/node": "^22.20.3"
