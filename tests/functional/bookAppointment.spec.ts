@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("test", () => {
+test.describe("Make an appointment", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("https://katalon-demo-cura.herokuapp.com/");
     await expect(page.locator("h3")).toContainText("We Care About Your Health");
@@ -10,35 +10,35 @@ test.describe("test", () => {
     await page.getByRole("link", { name: "Make Appointment" }).click();
   });
 
-  test("Error msg displayed when entered wrong username", async ({page}) => {
+  test("Error msg displayed when entered wrong username", async ({ page }) => {
     await page.getByLabel("Username").click();
-  await expect(page.locator("#login")).toContainText(
-    "Please login to make appointment.",
-  );
-  await expect(page.locator("form")).toContainText("Username");
-  await expect(page.locator("form")).toContainText("Password");
-//   await page.getByLabel("Username").click();
-  await page.getByLabel("Username").fill("jon Doe");
-//   await page.getByLabel("Password").click();
-  await page.getByLabel("Password").fill("ThisIsNotAPassword");
-  await page.getByRole("button", { name: "Login" }).click();
-  await expect(page.locator("#login")).toContainText(
-    "Login failed! Please ensure the username and password are valid.",
-  );
+    await expect(page.locator("#login")).toContainText(
+      "Please login to make appointment.",
+    );
+    await expect(page.locator("form")).toContainText("Username");
+    await expect(page.locator("form")).toContainText("Password");
+    //   await page.getByLabel("Username").click();
+    await page.getByLabel("Username").fill("jon Doe");
+    //   await page.getByLabel("Password").click();
+    await page.getByLabel("Password").fill("ThisIsNotAPassword");
+    await page.getByRole("button", { name: "Login" }).click();
+    await expect(page.locator("#login")).toContainText(
+      "Login failed! Please ensure the username and password are valid.",
+    );
   });
 
   test("Login successfully", async ({ page }) => {
     await page.getByLabel("Username").click();
-  await page.getByLabel("Username").fill("John Doe");
-  await page.getByLabel("Password").click();
-  await page.getByLabel("Password").fill("ThisIsNotAPassword");
-  await page.getByRole("button", { name: "Login" }).click();
-  await page.getByRole("heading", { name: "Make Appointment" }).click();
-  await expect(page.locator("h2")).toContainText("Make Appointment");
+    await page.getByLabel("Username").fill("John Doe");
+    await page.getByLabel("Password").click();
+    await page.getByLabel("Password").fill("ThisIsNotAPassword");
+    await page.getByRole("button", { name: "Login" }).click();
+    await page.getByRole("heading", { name: "Make Appointment" }).click();
+    await expect(page.locator("h2")).toContainText("Make Appointment");
   });
 });
 
-test("test", async ({ page }) => {
+test("Book an appointment", async ({ page }) => {
   await page.goto("https://katalon-demo-cura.herokuapp.com/");
   await page.getByRole("link", { name: "Make Appointment" }).click();
   await page.getByLabel("Username").fill("John Doe");
